@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="MobileBot">
+
+    <xacro:include filename="mobilerobot_description.urdf.xacro" />
+    <xacro:include filename="mobilerobot_control.urdf.xacro" />   
+</robot>

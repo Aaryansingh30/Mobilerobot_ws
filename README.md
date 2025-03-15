@@ -31,10 +31,11 @@ ros2 launch ekf_slam ekf_slam_launch.launch.py
 ```bash
 ros2 launch mobilerobot_nav2_stack mobilerobot_nav2_stack_launch.launch.py 
  ```
-
+```bash
 Mobilerobot_ws/
 ├── src/
 │   ├── ekf_slam/                 # Custom EKF-SLAM implementation
 │   ├── mobilerobot_nav2_stack/   # For implementing autonomous navigation using SLAM Toolbox and NAV2_bringup
 │   ├── mobilerobot_description/  # URDF model for Gazebo simulation
 └── README.md
+```

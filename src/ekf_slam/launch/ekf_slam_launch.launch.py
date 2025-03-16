@@ -16,7 +16,7 @@ def generate_launch_description():
     model_arg = DeclareLaunchArgument(
         name='model',
     default_value=os.path.join(
-        get_package_share_directory('mobilerobot_description'),  # ✅ Corrected
+        get_package_share_directory('mobilerobot_description'),
         'urdf', 'mobilerobot.urdf.xacro'
     ),
     description='Absolute path to robot URDF file'

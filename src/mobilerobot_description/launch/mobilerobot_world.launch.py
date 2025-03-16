@@ -24,6 +24,7 @@ def generate_launch_description():
         ]),
         launch_arguments={'world': os.path.join(get_package_share_directory(package_name), 'worlds', 'mobilerobot_world.world')}.items()
     )
+
     # Spawn robot into Gazebo 
     spawn_entity = Node(
         package='gazebo_ros',

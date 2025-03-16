@@ -6,12 +6,10 @@ from launch.substitutions import Command, LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 
-
 def generate_launch_description():
-    # Path to the bot_description package
+
     bot_description_dir = get_package_share_directory('mobilerobot_description')
 
-    # Declare a launch argument for the robot model
     model_arg = DeclareLaunchArgument(
         name='model',
         default_value=os.path.join(
@@ -22,7 +20,7 @@ def generate_launch_description():
 
     # Define robot description parameter
     robot_description = ParameterValue(
-        Command(['xacro ', LaunchConfiguration('model')]),
+        Command(['xacro ', LaunchConfiguration('model')]),  # Fixed space issue
         value_type=str
     )
 
@@ -50,24 +48,14 @@ def generate_launch_description():
             os.path.join(
                 bot_description_dir,
                 'config',
-                'mobilerobot_rviz.rviz2.rviz'
+                'mobilerobot_rviz.rviz2.rviz'  
             )
         ],
     )
 
-    Teleop_keyboard =  ExecuteProcess(
-            cmd=['gnome-terminal', '--','ros2', 'run', 'teleop_twist_keyboard', 'teleop_twist_keyboard',
-            ],
-            output='screen',
-        sigterm_timeout=0,
-        sigkill_timeout=0
-        )
-
-    # Return the launch description
     return LaunchDescription([
         model_arg,
         joint_state_publisher_gui_node,
         robot_state_publisher_node,
         rviz_node,
-        Teleop_keyboard
     ])

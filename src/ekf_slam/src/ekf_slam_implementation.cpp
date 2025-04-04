@@ -173,6 +173,7 @@ private:
     double x_predict, y_predict, theta_predict;
     double range;
     double dt;
+    std::vector<std::pair<double, double>> laser_data_;
 
     Eigen::MatrixXd P_;
     std::vector<Eigen::VectorXd> landmarks_;
@@ -462,7 +463,6 @@ private:
         marker_publisher_->publish(line_list);
     }
         
-    std::vector<std::pair<double, double>> laser_data_;
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_subscriber_;
     rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr scan_subscriber_;
 };
